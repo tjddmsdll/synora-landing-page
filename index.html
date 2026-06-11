@@ -680,27 +680,65 @@
     }
 
     .signal-row {
-      padding: 24px 26px;
+      padding: 28px 28px 26px;
       display: grid;
-      gap: 12px;
-      align-items: center;
+      gap: 18px;
+      align-items: start;
     }
 
     .signal-meta {
       display: grid;
-      gap: 2px;
+      gap: 10px;
     }
 
     .signal-mode {
-      font-size: 1.15rem;
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
     .signal-type {
       color: #4a8b7d;
-      font-size: 0.92rem;
+      font-size: 0.96rem;
       font-weight: 600;
+    }
+
+    .signal-purpose {
+      padding-left: 18px;
+      border-left: 4px solid rgba(17, 17, 17, 0.1);
+      color: rgba(17, 17, 17, 0.78);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .signal-purpose strong,
+    .signal-pattern-title,
+    .pattern-item strong,
+    .signal-overall strong {
+      color: var(--black);
+    }
+
+    .signal-pattern-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin: 4px 0 0;
+    }
+
+    .pattern-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .pattern-item {
+      display: grid;
+      gap: 6px;
+      color: rgba(17, 17, 17, 0.76);
+      line-height: 1.75;
+    }
+
+    .pattern-item strong {
+      font-size: 1rem;
+      font-weight: 700;
     }
 
     .rhythm-visual {
@@ -711,6 +749,14 @@
       color: var(--black);
       font-size: 1.35rem;
       letter-spacing: 0.1em;
+    }
+
+    .signal-overall {
+      display: grid;
+      gap: 6px;
+      padding-top: 4px;
+      color: rgba(17, 17, 17, 0.76);
+      line-height: 1.75;
     }
 
     .pulse {
@@ -858,8 +904,8 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .signal-row {
-        grid-template-columns: 1.2fr 1fr 0.9fr;
+      .signal-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -1370,36 +1416,80 @@
             <article class="signal-row reveal">
               <div class="signal-meta">
                 <div class="signal-mode">대화 흐름 모드</div>
-                <div class="signal-type">짧고 빠른 진동</div>
+                <div class="signal-purpose">
+                  <strong>목적:</strong> “언제 반응해야 하는지”를 알려주는 모드<br>
+                  → 즉각적이고 짧은 진동이 중요
+                </div>
               </div>
-              <p class="rhythm-copy">지금 반응할 타이밍</p>
-              <div class="rhythm-visual">
-                <span class="pulse" aria-hidden="true"><span></span><span></span></span>
-                <span>톡 · 톡</span>
+              <div class="signal-pattern-title">햅틱 패턴</div>
+              <div class="pattern-list">
+                <div class="pattern-item">
+                  <strong>• 짧게 1번</strong>
+                  <div>상대 말 끝 / 반응 가능 타이밍</div>
+                </div>
+                <div class="pattern-item">
+                  <strong>• 짧게 2번</strong>
+                  <div>질문 또는 추가 리액션 추천</div>
+                </div>
+                <div class="pattern-item">
+                  <strong>• 짧고 빠르게 3번</strong>
+                  <div>대화 흐름 급변 / 끼어들기 어려운 상태</div>
+                </div>
               </div>
             </article>
 
             <article class="signal-row reveal">
               <div class="signal-meta">
                 <div class="signal-mode">감각 안정 모드</div>
-                <div class="signal-type">느리고 부드러운 진동</div>
+                <div class="signal-purpose">
+                  <strong>목적:</strong> “사용자의 긴장 상태”를 안정적으로 인지시키는 모드<br>
+                  → 부드럽고 느린 진동이 중요
+                </div>
               </div>
-              <p class="rhythm-copy">잠시 안정이 필요한 상태</p>
-              <div class="rhythm-visual">
-                <span class="pulse" aria-hidden="true"><span></span><span></span></span>
-                <span>우웅 — 우웅</span>
+              <div class="signal-pattern-title">햅틱 패턴</div>
+              <div class="pattern-list">
+                <div class="pattern-item">
+                  <strong>• 길고 부드럽게 1번</strong>
+                  <div>긴장 상태 감지</div>
+                </div>
+                <div class="pattern-item">
+                  <strong>• 천천히 2번 반복</strong>
+                  <div>목소리 떨림 / 호흡 불안정 감지</div>
+                </div>
+                <div class="pattern-item">
+                  <strong>• 약하게 지속 진동</strong>
+                  <div>감각 과부하 가능성 증가</div>
+                  <div>휴식 필요 상태</div>
+                </div>
               </div>
             </article>
 
             <article class="signal-row reveal">
               <div class="signal-meta">
                 <div class="signal-mode">사회 환경 적응 모드</div>
-                <div class="signal-type">일정한 리듬의 진동</div>
+                <div class="signal-purpose">
+                  <strong>목적:</strong> “주변 환경 변화”를 인지시키는 모드<br>
+                  → 패턴감 있는 진동이 중요
+                </div>
               </div>
-              <p class="rhythm-copy">주변 환경이 복잡해진 상태</p>
-              <div class="rhythm-visual">
-                <span class="pulse" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span>톡 · 톡 · 톡</span>
+              <div class="signal-pattern-title">햅틱 패턴</div>
+              <div class="pattern-list">
+                <div class="pattern-item">
+                  <strong>• 톡·톡 (간격 있는 2회)</strong>
+                  <div>주변 소음 증가 / 말소리 겹침</div>
+                </div>
+                <div class="pattern-item">
+                  <strong>• 짧고 길게 1회씩</strong>
+                  <div>복잡한 사회 환경 변화 감지</div>
+                </div>
+                <div class="pattern-item">
+                  <strong>• 리듬감 있는 3회 진동</strong>
+                  <div>혼잡도 증가 / 빠른 대화 환경</div>
+                </div>
+              </div>
+              <div class="signal-overall">
+                <strong>👉 전체적으로</strong>
+                <div>패턴이 느껴지는 환경성 진동</div>
               </div>
             </article>
           </div>
